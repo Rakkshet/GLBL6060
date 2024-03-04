@@ -1,0 +1,39 @@
+# Final Project Proposal
+## Title: Utilizing Satellite Imagery and Neural Networks to Assess Sustainable Infrastructure Development
+
+### Background:
+Sustainable infrastructure development is crucial for creating resilient and environmentally friendly communities. Satellite imagery provides a valuable tool for monitoring urban growth and assessing the impact of infrastructure projects on the environment. In this project, we propose to use satellite imagery and neural networks to evaluate the development of sustainable infrastructure and forecast future expansion.
+
+### Objective:
+The main objective of this project is to develop a neural network model that can analyze satellite imagery to assess the current state of sustainable infrastructure development and predict its future growth. By leveraging machine learning techniques, we aim to provide valuable insights into how sustainable infrastructure is evolving over time and identify areas for improvement.
+
+### Methodology:
+1. **Data Collection:** We will gather satellite imagery datasets from sources such as NASA's Landsat program and the European Space Agency's Sentinel satellites. These datasets will provide high-resolution images of urban areas that we can use to track changes in infrastructure development.
+   
+2. **Image Processing:** The satellite imagery will be preprocessed to extract relevant features related to infrastructure, such as roads, buildings, green spaces, and water bodies. This will involve image segmentation and feature extraction techniques.
+   
+3. **Neural Network Development:** A convolutional neural network (CNN) will be developed to analyze the preprocessed satellite images and classify areas based on the level of sustainable infrastructure development. The neural network will be trained on labeled data to recognize patterns and trends in the imagery.
+   
+4. **Assessment and Forecasting:** The trained neural network will be used to assess the current state of sustainable infrastructure development in the study area. Additionally, the model will be used to predict the future expansion of sustainable infrastructure based on historical trends and potential growth factors.
+
+### Expected Outcomes:
+1. Identification of areas with high and low levels of sustainable infrastructure development.
+   
+2. Forecasting future expansion of sustainable infrastructure and potential areas for investment.
+   
+3. Visualization of changes in urban development over time using satellite imagery and neural network analysis.
+   
+4. Recommendations for policymakers and urban planners to promote sustainable infrastructure development.
+
+### Dataset Suggestions:
+1. [NASA Landsat Program](https://www.usgs.gov/): Landsat satellite images provide multispectral data at various resolutions for monitoring land use and land cover changes.
+   
+2. [European Space Agency's Sentinel Satellites](https://www.esa.int/): Sentinel satellite missions offer free and open-access data for monitoring environmental changes and urban development.
+   
+3. [OpenStreetMap (OSM)](https://www.openstreetmap.org/): OSM provides geospatial data on roads, buildings, and land use that can complement satellite imagery analysis.
+
+### Conclusion:
+This project aims to leverage satellite imagery and neural network technology to assess sustainable infrastructure development and support data-driven decision-making for urban planning and development. By combining remote sensing and machine learning techniques, we can gain valuable insights into the current state of infrastructure growth and shape a more sustainable future.
+
+---
+By undertaking this project, we can contribute to advancing sustainable development goals and promoting resilient communities through data-driven analyses and innovative technologies.
