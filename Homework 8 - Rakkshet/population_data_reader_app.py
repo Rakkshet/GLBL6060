@@ -7,7 +7,7 @@ pip install numpy
 pip install pyarrow
 '''
 
-# streamlit run /Users/rakkshetsinghaal/Desktop/Yale\ University/GLBL\ 6060/PycharmProjects/Python_Project3/streamlit_app_2.py
+# streamlit run /Users/rakkshetsinghaal/Desktop/Yale\ University/GLBL\ 6060/GLBL6060/Homework\ 8\ -\ Rakkshet/population_data_reader_app.py
 
 import pandas as pd
 import streamlit as st
@@ -63,14 +63,39 @@ elif options == "Population Change":
     st.plotly_chart(fig, use_container_width=True)
 elif options == "Population Heatmap":
     st.header("Population Heatmap by State and Year")
-    heatmap_data = df.pivot("states", "year", "population")
-    fig = go.Figure(data=go.Heatmap(
-        z=heatmap_data,
-        x=heatmap_data.columns,
-        y=heatmap_data.index,
-        hoverongaps=False,
-        colorscale="Viridis"))
-    fig.update_layout(title="Population Heatmap by State and Year", xaxis_nticks=36)
+    fig = go.Figure()
+    steps = []
+    for year in df['year'].unique():
+        year_data = df[df['year'] == year]
+        fig.add_trace(
+            go.Choropleth(
+                locations=year_data['states_code'],  # This assumes you're using state abbreviations
+                z=year_data['population'].astype(float),  # Data to be color-coded
+                locationmode='USA-states',  # Set to use USA state geographies
+                colorscale='Viridis',
+                colorbar_title="Population",
+            )
+        )
+        steps.append({
+            'method': 'update',
+            'args': [{'visible': [False] * len(df['year'].unique())},
+                     {'title': f"Population Heatmap by State and Year: {year}"}],  # layout attribute
+            'label': str(year),
+        })
+        fig.data[-1].visible = False
+    if fig.data:
+        fig.data[0].visible = True
+    sliders = [{
+        'active': 0,
+        'currentvalue': {"prefix": "Year: "},
+        'pad': {"t": 50},
+        'steps': steps
+    }]
+    fig.update_layout(
+        sliders=sliders,
+        geo=dict(scope='usa', projection=go.layout.geo.Projection(type='albers usa')),
+        title="Population Heatmap by State and Year",
+    )
     st.plotly_chart(fig, use_container_width=True)
 elif options == "State Population Distribution":
     st.header("State Population Distribution for a Selected Year")
